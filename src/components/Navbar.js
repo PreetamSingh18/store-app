@@ -6,7 +6,7 @@ import {faCartShopping} from '@fortawesome/free-solid-svg-icons';
 
 
 const Navbar = () => {
-  const items = useSelector((state) => state.cart);
+  const {cartTotalQuantity} = useSelector((state) => state.cart);
   return (
     <div className="NavBox">
       <span className="logo">Store App</span>
@@ -16,7 +16,7 @@ const Navbar = () => {
         </Link>
         <Link className="navLink" to="/cart">
         <FontAwesomeIcon icon={faCartShopping} />
-      <span className="cartCount">{items.length}</span>
+      <span className="cartCount">{cartTotalQuantity}</span>
         </Link>
       </div>
     </div>
