@@ -64,7 +64,7 @@ const Cart = () => {
                   <div className="count">{product.cartQuantity}</div>
                   <button onClick={()=>handleIncrease(product)}>+</button>
                 </div>
-                <div className="total-price">${product.price * product.cartQuantity}</div>
+                <div className="total-price">${(product.price * product.cartQuantity).toFixed(2)}</div>
                 <div>
                 <button
                   className="btn"

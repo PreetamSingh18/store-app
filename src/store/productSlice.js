@@ -11,6 +11,8 @@ const productSlice = createSlice({
     initialState: {
         data: [],
         status: STATUSES.IDLE,
+        SingleProduct:[],
+        SingleProductStatus:STATUSES.IDLE,
     },
     reducers: {
         // setProducts(state, action) {
@@ -31,7 +33,17 @@ const productSlice = createSlice({
             })
             .addCase(fetchProducts.rejected, (state, action) => {
                 state.status = STATUSES.ERROR;
-            });
+            })
+            .addCase(fetchSingleProducts.pending, (state, action) => {
+                state.SingleProductStatus = STATUSES.LOADING;
+            })
+            .addCase(fetchSingleProducts.fulfilled, (state, action) => {
+                state.SingleProduct = action.payload;
+                state.SingleProductStatus = STATUSES.IDLE;
+            })
+            .addCase(fetchSingleProducts.rejected, (state, action) => {
+                state.SingleProductStatus = STATUSES.ERROR;
+            })
     },
 });
 
@@ -39,11 +51,17 @@ export const { setProducts, setStatus } = productSlice.actions;
 export default productSlice.reducer;
 
 // Thunks
-export const fetchProducts = createAsyncThunk('products/fetch', async () => {
-    const res = await fetch('https://fakestoreapi.com/products');
+export const fetchProducts = createAsyncThunk('products/fetch', async (limit) => {
+    const res = await fetch(`https://fakestoreapi.com/products?limit=${limit}`);
     const data = await res.json();
     return data;
 });
+export const fetchSingleProducts = createAsyncThunk('products-single/fetch', async (id) => {
+    const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+    const data = await res.json();
+    return data;
+});
+
 
 // export function fetchProducts() {
 //     return async function fetchProductThunk(dispatch, getState) {
