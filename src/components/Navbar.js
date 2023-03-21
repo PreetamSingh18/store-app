@@ -7,7 +7,7 @@ import {faCartShopping , faBars,faXmark} from '@fortawesome/free-solid-svg-icons
 
 const Navbar = () => {
   const [openMenu,setOpenMenu]=useState(false);
-  console.log(openMenu)
+  // console.log(openMenu)
   const {cartTotalQuantity} = useSelector((state) => state.cart);
   return (
     <div className={openMenu?"NavBox active":"NavBox"} >

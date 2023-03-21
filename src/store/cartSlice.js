@@ -20,18 +20,20 @@ const cartSlice = createSlice({
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
         toast.info(
-          `increased ${state.cartItems[itemIndex].title} cart quantity`,
+          `increased ${state.cartItems[itemIndex].title.substr(0,20)+"..."} cart quantity`,
           {
             position: "bottom-left",
             autoClose: 1000,
+            className: 'toast-message'
           }
         );
       } else {
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProduct);
-        toast.success(`${action.payload.title}added to cart`, {
+        toast.success(`${action.payload.title.substr(0,20)+"..."}added to cart`, {
           position: "bottom-left",
           autoClose: 1000,
+          className: 'toast-message'
         });
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
@@ -42,9 +44,10 @@ const cartSlice = createSlice({
       );
       state.cartItems=nextCartItems;
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      toast.error (`${action.payload.title} removed from cart`, {
+      toast.error (`${action.payload.title.substr(0,20)+"..."} removed from cart`, {
         position: "bottom-left",
         autoClose: 1000,
+        className: 'toast-message'
       });
     },
     removeSingleItem(state, action){
@@ -53,9 +56,10 @@ const cartSlice = createSlice({
       );
       if(state.cartItems[itemIndex].cartQuantity>1){
         state.cartItems[itemIndex].cartQuantity-=1;
-        toast.info (`${action.payload.title} quantity decreased `, {
+        toast.info (`${action.payload.title.substr(0,20)+"..."} quantity decreased `, {
           position: "bottom-left",
           autoClose: 1000,
+          className: 'toast-message'
         });
       }
       else if(state.cartItems[itemIndex].cartQuantity===1){
@@ -63,9 +67,10 @@ const cartSlice = createSlice({
           (item) => item.id !== action.payload.id
         );
         state.cartItems=nextCartItems;
-        toast.error (`${action.payload.title} removed from cart`, {
+        toast.error (`${action.payload.title.substr(0,20)+"..."} removed from cart`, {
           position: "bottom-left",
           autoClose: 1000,
+          className: 'toast-message'
         });
         
       }
@@ -76,6 +81,7 @@ const cartSlice = createSlice({
       toast.error (`Cart Cleared`, {
         position: "bottom-left",
         autoClose: 1000,
+        className: 'toast-message'
       });
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },

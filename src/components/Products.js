@@ -8,12 +8,15 @@ import ReactLoading from "react-loading";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-
+import { setRecentProducts } from "../store/productSlice";
 
 const Products = (props) => {
   const maxItems=props.maxItems;
+
+
   const dispatch = useDispatch();
-  const { data: products, status } = useSelector((state) => state.product);
+  const { data: products, status,RecentProd } = useSelector((state) => state.product);
+
   // const [products, setProducts] = useState([]);
   const history = useNavigate();
   const [isAdding, setIsAdding] = useState(false);
@@ -45,6 +48,11 @@ const Products = (props) => {
     // history.push("/cart");
   };
 
+  const StoreRecentProd=(product)=>{
+    dispatch(setRecentProducts(product))
+  }
+  console.log(RecentProd);
+
   if (status === STATUSES.LOADING) {
     return (
       <div className="Product-Loading">
@@ -66,11 +74,11 @@ const Products = (props) => {
     <div className="productsWrapper">
       {products.map((product) => (
         <Link to={`/product/${product.id}`} key={product.id}>
-        <div className="card" key={product.id}>
+        <div className="card" key={product.id} onClick={()=>StoreRecentProd(product)}>
           <img src={product.image} alt="" />
           <h4>{product.title.length>20?product.title.substr(0,20)+"...":product.title}</h4>
           <h5>${product.price}</h5>
-          <button disabled={isAdding} onClick={(e) => handleAdd(e,product)} className={isAdding? "btn1" :"btn"}>
+          <button disabled={isAdding} onClick={(e) => handleAdd(e,product)} className="btn">
            {isAdding?<><FontAwesomeIcon icon={faCheck} /> ADDED</>: "Add to cart"}
            {/* ADD{isAdding ? 'ED' : ""} */}
           </button>
@@ -83,3 +91,7 @@ const Products = (props) => {
 };
 
 export default Products;
+
+
+// #ffd334
+// #01a2d8

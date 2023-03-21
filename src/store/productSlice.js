@@ -13,11 +13,25 @@ const productSlice = createSlice({
         status: STATUSES.IDLE,
         SingleProduct:[],
         SingleProductStatus:STATUSES.IDLE,
+        RecentProd:[],
     },
     reducers: {
-        // setProducts(state, action) {
-        //     state.data = action.payload;
-        // },
+        setRecentProducts(state, action) {
+            if(state.RecentProd.length>=10){
+               state.RecentProd.pop();
+              }
+              const itemIndex = state.RecentProd.findIndex(
+                (item) => item.id === action.payload.id
+              );
+              console.log(itemIndex);
+            //   const ind=state.RecentProd.indexOf(action.payload,0);
+            //   console.log(ind);
+              if(itemIndex>-1){
+                  state.RecentProd.splice(itemIndex,1); 
+              }
+              state.RecentProd.unshift(action.payload);
+             
+        },
         // setStatus(state, action) {
         //     state.status = action.payload;
         // },
@@ -47,7 +61,7 @@ const productSlice = createSlice({
     },
 });
 
-export const { setProducts, setStatus } = productSlice.actions;
+export const { setProducts, setStatus,setRecentProducts } = productSlice.actions;
 export default productSlice.reducer;
 
 // Thunks

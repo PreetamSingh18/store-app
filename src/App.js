@@ -12,6 +12,7 @@ import ProductPage from "./pages/ProductPage";
 
 
 const App = () => {
+  
   return (
     <div className="App">
       <Provider store={store}>

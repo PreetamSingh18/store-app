@@ -60,7 +60,10 @@ const SingleProduct = () => {
 
         <button onClick={()=>{history(-1)}} className="Back-btn"><FontAwesomeIcon icon={faAngleLeft} /> Back to shop</button>
          <div className="SingleProduct-container">
+            <div className="SingleProduct-container-ImgBox" >
+
             <img src={SingleProduct.image} alt="" />
+            </div>
             <div className='SingleProduct-data'>
                 <h1>{SingleProduct.title}</h1>
                 <div className='SingleProduct-desc'>

@@ -28,7 +28,7 @@ const Cart = () => {
 
   return (
     <div className="cart-container">
-      <h2>Cart</h2>
+      <h2>Shopping Cart</h2>
       {cartItems.length === 0 ? (
         <div className="cart-empty">
           <p>Your cart is currently empty</p>
@@ -54,9 +54,9 @@ const Cart = () => {
               <div key={product.id} className="cartCard">
                 <div className="cart-product">
                   <img src={product.image} alt="" />
-                  <h5>{product.title.length>=30?product.title.substr(0,29)+"...":product.title}</h5>
+                  <h5>{product.title.length>=20?product.title.substr(0,20)+"...":product.title}</h5>
                 </div>
-                <div>
+                <div className="cart-product-price">
                   <h5>${product.price}</h5>
                 </div>
                 <div className="cart-product-quantity">
@@ -67,7 +67,7 @@ const Cart = () => {
                 <div className="total-price">${(product.price * product.cartQuantity).toFixed(2)}</div>
                 <div>
                 <button
-                  className="btn"
+                  className="btn Removebtn"
                   onClick={() => handleRemove(product)}
                 >
                   Remove
