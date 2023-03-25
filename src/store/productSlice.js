@@ -13,7 +13,9 @@ const productSlice = createSlice({
         status: STATUSES.IDLE,
         SingleProduct:[],
         SingleProductStatus:STATUSES.IDLE,
-        RecentProd:[],
+        RecentProd:localStorage.getItem("RecentItems")
+        ? JSON.parse(localStorage.getItem("RecentItems"))
+        : [],
     },
     reducers: {
         setRecentProducts(state, action) {
@@ -23,14 +25,14 @@ const productSlice = createSlice({
               const itemIndex = state.RecentProd.findIndex(
                 (item) => item.id === action.payload.id
               );
-              console.log(itemIndex);
+            //   console.log(itemIndex);
             //   const ind=state.RecentProd.indexOf(action.payload,0);
             //   console.log(ind);
               if(itemIndex>-1){
                   state.RecentProd.splice(itemIndex,1); 
               }
               state.RecentProd.unshift(action.payload);
-             
+              localStorage.setItem("RecentItems", JSON.stringify(state.RecentProd));
         },
         // setStatus(state, action) {
         //     state.status = action.payload;

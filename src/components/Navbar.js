@@ -11,6 +11,7 @@ const Navbar = () => {
   const {cartTotalQuantity} = useSelector((state) => state.cart);
   return (
     <div className={openMenu?"NavBox active":"NavBox"} >
+    {/* <img src={require("../img/ShopMore (1).png")} className="logo"/> */}
       <span className="logo"><span style={{color:"#692ccb",fontWeight:800}}>S</span>tore App</span>
       <div className="NavItems" >
         <Link className="navLink" to="/" onClick={()=>setOpenMenu(false)}>
@@ -22,8 +23,11 @@ const Navbar = () => {
         <Link className="navLink" to="/cart" onClick={()=>setOpenMenu(false)}>
         {/* {openMenu?"Cart": <><FontAwesomeIcon icon={faCartShopping} />
       <span className="cartCount">{cartTotalQuantity}</span></>} */}
-      <FontAwesomeIcon icon={faCartShopping} />
-      <span className="cartCount">{cartTotalQuantity}</span>
+
+      <FontAwesomeIcon icon={faCartShopping} className="NavCart-Name-Lap" />
+      <span className="cartCount NavCart-Name-Lap">{cartTotalQuantity}</span>
+      <span className="NavCart-Name-Mobile">Cart</span>
+
         </Link>
 
       </div>

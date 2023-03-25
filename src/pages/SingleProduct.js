@@ -12,7 +12,7 @@ import StarRatings from 'react-star-ratings';
 
 const SingleProduct = () => {
     const{id}=useParams();
-    // console.log(id);
+     console.log(id);
     const history=useNavigate();
     const dispatch=useDispatch();
     const [isAdding, setIsAdding] = useState(false);
@@ -97,4 +97,4 @@ const SingleProduct = () => {
   )
 }
 
-export default SingleProduct
+export default SingleProduct;

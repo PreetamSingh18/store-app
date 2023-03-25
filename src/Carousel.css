@@ -30,3 +30,14 @@
     -webkit-transform: rotate(135deg);
 }
 
+
+.carousel-box{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+@media screen and (max-width: 480px){
+    .carousel-box{
+        margin-left: 0rem;
+        margin-right: 0rem;
+    }
+}

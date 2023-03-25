@@ -9,49 +9,20 @@ import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { setRecentProducts } from "../store/productSlice";
+import Product from "./Product.js";
 
 const Products = (props) => {
   const maxItems=props.maxItems;
-
-
+  
   const dispatch = useDispatch();
-  const { data: products, status,RecentProd } = useSelector((state) => state.product);
+  const { data: products, status} = useSelector((state) => state.product);
 
-  // const [products, setProducts] = useState([]);
-  const history = useNavigate();
-  const [isAdding, setIsAdding] = useState(false);
 
   useEffect(() => {
     dispatch(fetchProducts(maxItems));
    dispatch(getTotal());
-    // const fetchProducts = async () => {
-    //     const res = await fetch('https://fakestoreapi.com/products');
-    //     const data = await res.json();
-    //     console.log(data);
-    //     setProducts(data);
-    // };
-    // fetchProducts();
+   
   }, []);
-  const handleAdd = (event ,product) => {
-    event.preventDefault();
-    dispatch(add(product));
-    dispatch(getTotal());
-    event.target.style.backgroundColor = "green"
-    setIsAdding(true);
-   
-    setTimeout(() => {
-      setIsAdding(false);
-   
-      event.target.style.backgroundColor = "#764abc"
-    }, 1000);
-
-    // history.push("/cart");
-  };
-
-  const StoreRecentProd=(product)=>{
-    dispatch(setRecentProducts(product))
-  }
-  console.log(RecentProd);
 
   if (status === STATUSES.LOADING) {
     return (
@@ -70,22 +41,12 @@ const Products = (props) => {
   if (status === STATUSES.ERROR) {
     return <h2 className="Product-Error">Something went wrong!</h2>;
   }
+
   return (
     <div className="productsWrapper">
-      {products.map((product) => (
-        <Link to={`/product/${product.id}`} key={product.id}>
-        <div className="card" key={product.id} onClick={()=>StoreRecentProd(product)}>
-          <img src={product.image} alt="" />
-          <h4>{product.title.length>20?product.title.substr(0,20)+"...":product.title}</h4>
-          <h5>${product.price}</h5>
-          <button disabled={isAdding} onClick={(e) => handleAdd(e,product)} className="btn">
-           {isAdding?<><FontAwesomeIcon icon={faCheck} /> ADDED</>: "Add to cart"}
-           {/* ADD{isAdding ? 'ED' : ""} */}
-          </button>
-        </div>
-
-        </Link>
-      ))}
+        {
+          products.map(product=><Product key={product.id} product={product}/>)
+        }
     </div>
   );
 };
