@@ -13,8 +13,8 @@ import Footer from "./Footer";
 const Home = () => {
   const { status } = useSelector((state) => state.product);
   const { categories } = useSelector((state) => state.categories);
+  const { RecentProd } = useSelector((state) => state.product);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(fetchCategories());
   }, []);
@@ -52,9 +52,12 @@ const Home = () => {
 
         </div>
       </section>
+      <div className={RecentProd.length?"":"RecentDisplay"}>
       <h3 className="Recent-heading">Recently Viewed </h3>
       <div className="Home-RecentProd">
         <MultiCarousel />
+      </div>
+
       </div>
       <Footer/>
     </div>
