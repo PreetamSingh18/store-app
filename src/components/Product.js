@@ -24,7 +24,6 @@ const Product = (props) => {
 
     setTimeout(() => {
       setIsAdding(false);
-
       event.target.style.backgroundColor = "#764abc";
     }, 1000);
 
@@ -33,7 +32,6 @@ const Product = (props) => {
 
   const StoreRecentProd = ( product) => {
     dispatch(setRecentProducts(product));
-    
   };
   // console.log(RecentProd);
 //  console.log(product.id);

@@ -473,12 +473,18 @@ margin: 1rem;
 
 .CategoryProduct-Box{
   margin: 1rem;
+  /* margin-top: 0.5rem; */
 }
 .CategoryProduct-Box h3{
   text-align: center;
   text-transform: uppercase;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+.CategoryProduct-Box .Back-btn{
+  margin-top: 1rem;
+  margin-left: 1rem;
+
 }
 
 .Remove-Newbtn{

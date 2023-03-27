@@ -46,7 +46,7 @@ const MultiCarousel = () => {
   >
      {/* <div> */}
      {RecentProd.map((product) => (
-        <div className="RecentCarousel">
+        <div className="RecentCarousel" key={product.id}>
         <Product key={product.id} product={product} show={true}/>
         </div>
       ))}
