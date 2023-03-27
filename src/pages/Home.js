@@ -52,13 +52,16 @@ const Home = () => {
 
         </div>
       </section>
-      <div className={RecentProd.length?"":"RecentDisplay"}>
+      {/* <div className="RecBox"> */}
+        
+      <div className={RecentProd.length?"RecentDisplayBox ":"RecentDisplay RecentDisplayBox"}>
       <h3 className="Recent-heading">Recently Viewed </h3>
       <div className="Home-RecentProd">
         <MultiCarousel />
       </div>
 
       </div>
+      {/* </div> */}
       <Footer/>
     </div>
   );

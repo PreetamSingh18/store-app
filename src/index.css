@@ -12,6 +12,13 @@ body {
   box-sizing: border-box;
   background: whitesmoke;
   overflow-x: hidden;
+  /* position: relative;
+  z-index: 100000; */
+}
+.Home-Box{
+  position: relative;
+  /* z-index: -100; */
+  z-index: 0;
 }
 .card img {
   height: 80px;
@@ -415,8 +422,17 @@ body {
   margin: 1rem 2rem 1rem 2rem;
 }
 /* Multi Carousel */
+/* .RecBox{
+  position: relative;
+  margin: 1rem;
+  padding: 2rem;
+} */
 .RecentDisplay {
   display: none;
+}
+.RecentDisplayBox{
+  position: relative;
+  z-index:-10;
 }
 
 .Home-RecentProd {
@@ -425,13 +441,15 @@ body {
   border-radius: 20px;
   margin: 1rem;
   position: relative;
-  z-index: -100;
+  z-index: -2;
 }
 .react-multi-carousel-list {
+  /* position: relative; */
   z-index: -1;
 }
 .RecentCarousel {
   margin: 1rem;
+  z-index: -1;
   margin-left: 0.3rem;
   margin-right: 0.3rem;
 }
@@ -592,6 +610,7 @@ body {
   .active {
     position: fixed;
     top: 0;
+    z-index: 10;
   }
   .carousel {
     z-index: -1;

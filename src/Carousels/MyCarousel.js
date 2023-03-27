@@ -13,6 +13,7 @@ const MyCarousel = () => {
       showArrows={true}
       showStatus={false}
       showIndicators={true}
+      stopOnHover={false}
     >
       <div>
         <img src={require("../img/img1.jpg")} alt="" />
