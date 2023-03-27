@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faCartShopping , faBars,faXmark} from '@fortawesome/free-solid-svg-icons';
+import {faCartShopping , faBars,faXmark, faBagShopping} from '@fortawesome/free-solid-svg-icons';
 
 
 const Navbar = () => {
@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <div className={openMenu?"NavBox active":"NavBox"} >
     {/* <img src={require("../img/ShopMore (1).png")} className="logo"/> */}
-      <span className="logo"><span style={{color:"#692ccb",fontWeight:800}}>S</span>tore App</span>
+      <span className="logo"><span style={{color:"#692ccb",fontWeight:800, fontSize:"40px"}}>S</span>h<FontAwesomeIcon icon={faBagShopping}  style={{color:"#692ccb"}}/>pping</span>
       <div className="NavItems" >
         <Link className="navLink" to="/" onClick={()=>setOpenMenu(false)}>
           Home

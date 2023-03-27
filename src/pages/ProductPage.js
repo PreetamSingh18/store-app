@@ -1,5 +1,6 @@
 import React from 'react'
 import Products from '../components/Products'
+import Footer from './Footer'
 
 const ProductPage = () => {
   return (
@@ -9,6 +10,7 @@ const ProductPage = () => {
         <Products/> 
 
      </div>
+     <Footer/>
     </div>
   )
 }

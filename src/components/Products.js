@@ -1,7 +1,7 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { add ,getTotal } from "../store/cartSlice";
+import { getTotal } from "../store/cartSlice";
 import { fetchProducts } from "../store/productSlice";
 import { STATUSES } from "../store/productSlice";
 import ReactLoading from "react-loading";

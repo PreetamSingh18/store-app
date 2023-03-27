@@ -8,6 +8,7 @@ import ReactLoading from "react-loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faCheck } from "@fortawesome/free-solid-svg-icons";
 import StarRatings from 'react-star-ratings';
+import Footer from './Footer';
 
 
 const SingleProduct = () => {
@@ -93,6 +94,7 @@ const SingleProduct = () => {
           </button>
             </div>
          </div>
+         <Footer/>
     </div>
   )
 }

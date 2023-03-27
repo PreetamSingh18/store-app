@@ -17,7 +17,7 @@ const CategoryProduct = () => {
   const { categoryProducts, categoryProductsStatus } = useSelector(
     (state) => state.categories
   );
-  console.log(categoryProducts);
+  // console.log(categoryProducts);
 
   useEffect(() => {
     dispatch(fetchCategoryProducts(category));

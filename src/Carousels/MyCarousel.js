@@ -1,9 +1,7 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { CarouselProps } from "react-responsive-carousel";
 import "../Carousel.css";
-import { useDispatch, useSelector } from "react-redux";
 // import Product from "../Product";
 
 const MyCarousel = () => {

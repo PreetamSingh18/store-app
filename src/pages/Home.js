@@ -8,6 +8,7 @@ import MyCarousel, { RecentCarousel } from "../Carousels/MyCarousel";
 import MultiCarousel from "../Carousels/MultiCarousel";
 import { fetchCategories } from "../store/categorySlice";
 import { useEffect } from "react";
+import Footer from "./Footer";
 
 const Home = () => {
   const { status } = useSelector((state) => state.product);
@@ -34,7 +35,7 @@ const Home = () => {
       <div className="carousel-box">
         <MyCarousel />
       </div>
-      <h2 className="heading">Welcome to Store</h2>
+      {/* <h2 className="heading">Welcome to Store</h2> */}
       <section>
         <h3>Recommended for you</h3>
         <div className="Home-Products-Data">
@@ -55,6 +56,7 @@ const Home = () => {
       <div className="Home-RecentProd">
         <MultiCarousel />
       </div>
+      <Footer/>
     </div>
   );
 };
