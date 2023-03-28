@@ -35,10 +35,15 @@
     -webkit-transform: rotate(135deg);
 }
 
-
+.carousel-root{
+    position: relative;
+    z-index: -10;
+}
 .carousel-box{
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+    position: relative;
+    z-index: -100;
 }
 .carousel *{
     position: relative;
