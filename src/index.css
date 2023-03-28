@@ -97,7 +97,7 @@ body {
 
 .logo {
   margin: 0.5rem;
-  margin-left: 1rem;
+  margin-left: 2rem;
   letter-spacing: 1.1px;
   /* height: 50px; */
   color: rgb(255, 205, 39);
@@ -117,6 +117,10 @@ body {
   color: black;
   margin-left: 20px;
   letter-spacing: 1.15px;
+}
+.navLink:hover{
+  color: rgb(84, 84, 84);
+box-shadow: #053c7d;
 }
 
 .cartCard {
@@ -447,6 +451,13 @@ body {
   /* position: relative; */
   z-index: -1;
 }
+
+.react-multiple-carousel__arrow--right {
+ margin-right:-2rem ;
+}
+.react-multiple-carousel__arrow--left{
+  margin-left: -2rem;
+}
 .RecentCarousel {
   margin: 1rem;
   z-index: -1;
@@ -593,9 +604,24 @@ body {
   margin-left: 2rem;
 }
 
+
+.copyright h6{
+  margin-left:.1rem; 
+  display: inline;
+  font-size: 8px;
+  font-weight: 400;
+}
 /* Responsive */
 
 /* Navbar Responsive */
+@media screen and (max-width: 970px){
+  .react-multiple-carousel__arrow--right {
+    margin-right:-1.2rem ;
+   }
+   .react-multiple-carousel__arrow--left{
+     margin-left: -1.2rem;
+   }
+}
 
 @media (max-width: 768px) {
   .NavCart-Name-Lap {
@@ -623,6 +649,7 @@ body {
   .mobile-Navbar {
     display: inline-block;
     z-index: 999;
+    margin-right: 0.5rem;
   }
 
   .NavItems {
@@ -638,7 +665,7 @@ body {
     justify-content: center;
     /* text-align: center; */
     transform: translateX(100%);
-    transition: 0.5s ease-in;
+    transition: 0.4s ease-in;
     z-index: 100;
   }
   .navLink {
@@ -656,7 +683,7 @@ body {
     top: 2%;
     right: 5%;
     z-index: 9999;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-out;
     opacity: 5;
   }
   .active .close-outline {
@@ -828,7 +855,12 @@ body {
     margin-left: 1rem;
     font-weight: 400;
   }
- 
+  .react-multiple-carousel__arrow--right {
+    margin-right:-1rem ;
+   }
+   .react-multiple-carousel__arrow--left{
+     margin-left: -1rem;
+   }
 
   /* .Footer-content-Items span{
 margin-left: 2rem;
@@ -869,6 +901,12 @@ margin-left: 2rem;
   }
   .copyright {
     margin-bottom: 0.5rem;
+  }
+  .copyright h6{
+    font-size: 6px;
+  }
+  .Home-Box section h3{
+ font-size: 16px;
   }
 }
 
@@ -1022,6 +1060,7 @@ margin-left: 2rem;
 
   .content-links-data-items h3 {
     font-size: 15px;
+    margin-top:.5rem ;
   }
   .content-links-data-items h5 {
     font-size: 12px;
@@ -1038,6 +1077,7 @@ margin-left: 2rem;
   .copyright{
 margin-top: -.8rem;
   }
+  
   .Footer-content-links span{
     font-weight: 400;
   }
@@ -1047,6 +1087,12 @@ margin-top: -.8rem;
   }
   .content-links-socials .content-links-socialLink{
     margin-left: 20%;
+  }
+    .Home-Box section h3{
+ font-size: 16px;
+  }
+  .Recent-heading{
+    font-size: 16px;
   }
 }
 @media screen and (max-width: 440px) {
@@ -1062,10 +1108,15 @@ margin-top: -.8rem;
   .content-links-Email{
     margin-top: -0.5rem;
   }
-
+  .Home-Box section h3{
+    font-size: 13px;
+  }
 
 }
 @media screen and (max-width: 380px) {
+  .Recent-heading{
+    font-size: 13px;
+  }
   .Remove-Newbtn {
     display: inline;
     padding: 4px;
@@ -1100,6 +1151,7 @@ margin-top: -.8rem;
   }
   .content-links-data-items h3{
     font-size: 12px;
+    margin-bottom: 1rem;
   }
   .content-links-data-items h5{
     font-size: 10px;

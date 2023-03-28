@@ -1,11 +1,15 @@
 .carousel .control-next.control-arrow, .carousel .control-next.control-arrow:hover{
     background-color: transparent;
     /* right: -146px; */
+    height: min-content;
+    top: 40%;
 }
 
 .carousel .control-prev.control-arrow, .carousel .control-prev.control-arrow:hover {
     background-color: transparent;
     /* left: -146px; */
+    height: min-content;
+    top: 40%;
 }
 
 /* .carousel .control-arrow, .carousel.carousel-slider .control-arrow{ */
@@ -19,6 +23,7 @@
     padding: 14px;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
+    /* z-index: 1; */
 }
 .carousel .control-prev.control-arrow:before {
     content: '';
@@ -34,6 +39,23 @@
 .carousel-box{
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+}
+.carousel *{
+    position: relative;
+    z-index: -100;
+}
+
+@media screen and (max-width: 590px){
+    .carousel .control-prev.control-arrow:before{
+        padding: 8px;
+        border-width: 0 5px 5px 0;
+        margin-left: 0;
+    }
+    .carousel .control-next.control-arrow:before{
+        padding: 8px;
+        border-width: 0 5px 5px 0;
+        margin-right: 0;
+    }
 }
 @media screen and (max-width: 480px){
     .carousel-box{

@@ -5,6 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 import { useSelector } from 'react-redux';
 
 const MultiCarousel = () => {
+  
     const { RecentProd } = useSelector((state) => state.product);
     const responsive = {
         superLargeDesktop: {
@@ -17,17 +18,20 @@ const MultiCarousel = () => {
           items: 4
         },
         tablet: {
-          breakpoint: { max: 1024, min: 550 },
+          breakpoint: { max: 1024, min: 600 },
           items: 3
         },
         mobile: {
           breakpoint: { max: 550, min: 0 },
           items: 2
         }
+        
+        
+      
       };
   return (
     <Carousel
-     swipeable={false}
+     swipeable={true}
   draggable={false}
   showDots={true}
   responsive={responsive}
@@ -39,8 +43,8 @@ const MultiCarousel = () => {
   customTransition="all .5"
   transitionDuration={500}
   containerClass="carousel-container"
-  removeArrowOnDeviceType={["tablet", "mobile"]}
-//    deviceType={this.props.deviceType}
+  removeArrowOnDeviceType={["mobile"]}
+  arrows={true}
   dotListClass="custom-dot-list-style"
   itemClass="carousel-item-padding-40-px"
   >

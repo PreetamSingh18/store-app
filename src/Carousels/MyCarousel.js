@@ -5,15 +5,19 @@ import "../Carousel.css";
 // import Product from "../Product";
 
 const MyCarousel = () => {
+  
   return (
     <Carousel
-      autoPlay={true}
+
+      autoPlay
       infiniteLoop={true}
       showThumbs={false}
       showArrows={true}
       showStatus={false}
       showIndicators={true}
       stopOnHover={false}
+      swipeable={true}
+      // emulateTouch={false}
     >
       <div>
         <img src={require("../img/img1.jpg")} alt="" />
